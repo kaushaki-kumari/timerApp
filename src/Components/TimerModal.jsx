@@ -60,6 +60,10 @@ const TimerModal = ({ show, onClose }) => {
 
     if (!show) return null;
 
+    const minutes = Math.floor(timerState.time / 60);
+    const seconds = timerState.time % 60;
+    const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
     return (
         <div className={`modal fade show ${show ? 'd-block' : ''}`} tabIndex="-1">
             <div className="modal-dialog">
@@ -75,7 +79,7 @@ const TimerModal = ({ show, onClose }) => {
                         ></button>
                     </div>
                     <div className="modal-body text-center">
-                        <h2>{timerState.time} seconds</h2>
+                        <h2>{formattedTime}</h2>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-primary" onClick={handleStartPause}>
