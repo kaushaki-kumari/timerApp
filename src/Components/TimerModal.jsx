@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import './TimerModal.css';
 
 const TimerModal = ({ show, onClose }) => {
     const [timerState, setTimerState] = useState({
