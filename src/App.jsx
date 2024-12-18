@@ -1,11 +1,18 @@
-import './App.css'
+import React from 'react';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
-  )
-}
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
 
-export default App
+export default App;
