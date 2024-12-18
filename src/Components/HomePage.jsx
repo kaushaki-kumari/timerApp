@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
 import TimerModal from './TimerModal';
-import { Link } from 'react-router-dom';
 
 const HomePage = () => {
-    const [modalState, setModalState] = useState({
-        isModalOpen: false
-    });
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = () => setModalState({ ...modalState, isModalOpen: true });
-    const closeModal = () => setModalState({ ...modalState, isModalOpen: false });
+    const toggleModal = (state) => setIsModalOpen(state);
 
     return (
         <div className="container mt-5">
             <h1 className="text-center">Timer App</h1>
             <div className="d-flex justify-content-center mt-4">
-                <Link to="/" className="btn btn-danger" onClick={openModal}>
+                <button className="btn btn-danger" onClick={() => toggleModal(true)}>
                     Go to Timer
-                </Link>
+                </button>
             </div>
-
-            <TimerModal show={modalState.isModalOpen} onClose={closeModal} />
+            <TimerModal show={isModalOpen} onClose={() => toggleModal(false)} />
         </div>
     );
 };
