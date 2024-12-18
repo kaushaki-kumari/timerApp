@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import TimerModal from './TimerModal';
+import TimerModal from '../Components/TimerModal';
 
 const HomePage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
